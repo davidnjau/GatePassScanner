@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">GatePassScanner</string>
+
+
+    <string name="forgot_password">
+        <u>
+            forgot Password
+        </u>
+    </string>
+
+</resources>
