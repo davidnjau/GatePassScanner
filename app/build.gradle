@@ -44,5 +44,14 @@ dependencies {
     //Circular ImageView
     implementation 'de.hdodenhof:circleimageview:3.0.1'
 
+    //Graph
     implementation 'com.jjoe64:graphview:4.2.2'
+
+    //QR Code
+    implementation 'androidmads.library.qrgenearator:QRGenearator:1.0.3'
+    implementation 'com.budiyev.android:code-scanner:2.1.0'
+
+    implementation "com.squareup.picasso:picasso:2.71828"
+
+
 }

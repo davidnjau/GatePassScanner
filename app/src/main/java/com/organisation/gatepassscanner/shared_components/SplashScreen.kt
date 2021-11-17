@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.organisation.gatepassscanner.R
+import com.organisation.gatepassscanner.admin.AdminHome
+import com.organisation.gatepassscanner.helperclass.Formatter
 import com.organisation.gatepassscanner.staff.MainActivity
 
 class SplashScreen : AppCompatActivity() {
@@ -17,9 +19,43 @@ class SplashScreen : AppCompatActivity() {
 
         handler = Handler()
         handler.postDelayed(Runnable {
-            val intent = Intent(this@SplashScreen, Login::class.java)
-            startActivity(intent)
-            finish()
+
+            val loginStatus = Formatter().checkLoginStatus(this)
+            val isLoggedIn = loginStatus.isLoggedIn
+            val department = loginStatus.department
+
+            if (isLoggedIn){
+
+                //The user is logged in
+                if (department != null){
+
+                    if (department == "Admin" || department == "Security"){
+
+                        val intent = Intent(this@SplashScreen, AdminHome::class.java)
+                        startActivity(intent)
+                        finish()
+
+                    }else{
+                        val intent = Intent(this@SplashScreen, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+
+                }else{
+                    val intent = Intent(this@SplashScreen, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+
+
+            }else{
+                val intent = Intent(this@SplashScreen, AdminHome::class.java)
+                startActivity(intent)
+                finish()
+            }
+
+
+
         }, 3000)
 
     }

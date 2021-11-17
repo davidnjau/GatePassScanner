@@ -219,10 +219,8 @@
 
     </LinearLayout>
 
-
     <include
-        android:id="@+id/customToolbar"
+        android:id="@+id/customBottomToolbar"
         layout="@layout/custom_bottom_navigation" />
-
 
 </RelativeLayout>

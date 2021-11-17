@@ -4,14 +4,31 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/bac_main.xml" value="0.371875" />
+        <entry key="app/src/main/res/drawable/bac_main_badge.xml" value="0.24791666666666667" />
         <entry key="app/src/main/res/drawable/bac_main_graph.xml" value="0.371875" />
         <entry key="app/src/main/res/drawable/border_main.xml" value="0.371875" />
+        <entry key="app/src/main/res/drawable/button_bac.xml" value="0.24791666666666667" />
+        <entry key="app/src/main/res/drawable/button_background_ripple.xml" value="0.24791666666666667" />
+        <entry key="app/src/main/res/drawable/circular_bac.xml" value="0.24791666666666667" />
         <entry key="app/src/main/res/drawable/edittext_bac.xml" value="0.371875" />
+        <entry key="app/src/main/res/drawable/employee_outline.xml" value="0.24791666666666667" />
+        <entry key="app/src/main/res/drawable/layout_outline.xml" value="0.24791666666666667" />
+        <entry key="app/src/main/res/layout/activity_admin_all_scans.xml" value="0.23715277777777777" />
+        <entry key="app/src/main/res/layout/activity_admin_home.xml" value="0.23715277777777777" />
+        <entry key="app/src/main/res/layout/activity_admin_scan_details.xml" value="0.23715277777777777" />
+        <entry key="app/src/main/res/layout/activity_admin_scan_qrcode.xml" value="0.23715277777777777" />
+        <entry key="app/src/main/res/layout/activity_admin_settings.xml" value="0.23715277777777777" />
+        <entry key="app/src/main/res/layout/activity_badge_details.xml" value="0.23715277777777777" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.3500905797101449" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_settings.xml" value="0.23715277777777777" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.3500905797101449" />
+        <entry key="app/src/main/res/layout/custom_admin_bottom_navigation.xml" value="0.23715277777777777" />
         <entry key="app/src/main/res/layout/custom_bottom_navigation.xml" value="0.3432971014492754" />
-        <entry key="app/src/main/res/layout/custom_toolbar.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/custom_toolbar.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/custom_toolbar_main.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/employee_time_status.xml" value="0.23715277777777777" />
+        <entry key="app/src/main/res/menu/bottom_navigation_admin_menu_main.xml" value="0.23715277777777777" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu_main.xml" value="0.35572916666666665" />
       </map>
     </option>

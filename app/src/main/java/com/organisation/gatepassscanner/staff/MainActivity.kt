@@ -1,22 +1,60 @@
 package com.organisation.gatepassscanner.staff
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.cardview.widget.CardView
 import com.jjoe64.graphview.GraphView
 import com.jjoe64.graphview.series.DataPoint
 import com.organisation.gatepassscanner.R
 import com.jjoe64.graphview.series.LineGraphSeries
+import com.organisation.gatepassscanner.helperclass.Formatter
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var graphView: GraphView
+    private lateinit var cardViewShowBadge: CardView
+    private var formatter = Formatter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        graphView = findViewById(R.id.idGraphView);
+        formatter.customMainToolbar(this)
+        formatter.customBottomNavigation(this)
+
+
+        cardViewShowBadge = findViewById(R.id.cardViewShowBadge)
+        graphView = findViewById(R.id.idGraphView)
+
+        cardViewShowBadge.setOnClickListener {
+
+            val intent = Intent(this, BadgeDetails::class.java)
+            startActivity(intent)
+
+        }
+
+        getGraphDetails()
+
+
+    }
+
+    private fun getGraphDetails() {
+
+
+//        val formatter = SimpleDateFormat("dd")
+//        val date = Date()
+//        val now = formatter.format(date)
+//
+//        println(now.toDouble())
+//        Log.e("-*-*- " , now)
+
         val series: LineGraphSeries<DataPoint> = LineGraphSeries(
             arrayOf( // on below line we are adding
                 // each point on our x and y axis.
@@ -33,22 +71,13 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
-        // after adding data to our line graph series.
-        // on below line we are setting
-        // title for our graph view.
         graphView.title = "My Graph View";
-
-        // on below line we are setting
-        // text color to our graph view.
         graphView.titleColor = R.color.purple_200;
 
-        // on below line we are setting
-        // our title text size.
 //        graphView.setTitleTextSize(18);
 
-        // on below line we are adding
-        // data series to our graph view.
         graphView.addSeries(series);
+
 
     }
 

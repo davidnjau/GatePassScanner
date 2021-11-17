@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".admin.AdminSettings">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/customToolbarMain"
+            layout="@layout/custom_toolbar_main" />
+
+        <LinearLayout
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:text="Change Password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:text="Please enter new password and save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_marginTop="20dp"
+                android:drawablePadding="20dp"
+                android:hint="New Password"
+                android:inputType="textPassword"
+                android:drawableStart="@drawable/ic_action_password"
+                android:background="@drawable/edittext_bac"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <EditText
+                android:id="@+id/etConfirmPassword"
+                android:layout_marginTop="20dp"
+                android:drawablePadding="20dp"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:drawableStart="@drawable/ic_action_password"
+                android:background="@drawable/edittext_bac"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:gravity="end"
+                android:layout_gravity="end"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:textAllCaps="false"
+                    android:id="@+id/btn_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="10dp"
+                    android:background="@drawable/button_bac"
+                    android:text="Save"
+                    android:textColor="@color/colorSave" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/bottom_navigation"
+        layout="@layout/custom_admin_bottom_navigation" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

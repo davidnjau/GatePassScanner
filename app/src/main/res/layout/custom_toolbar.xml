@@ -24,7 +24,7 @@
                 android:id="@+id/tvToolBarTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hello, Joy Doe"
+                android:text="Hello,"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
