@@ -84,6 +84,8 @@ class Formatter {
 
     }
 
+
+
     private var navigationItemSelectedListener =
         BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
@@ -106,6 +108,10 @@ class Formatter {
             }
             false
         }
+
+    fun saveCurrentActivity(title: String){
+
+    }
 
     fun customMainToolbar(context: Context){
 

@@ -13,11 +13,12 @@
         <entry key="app/src/main/res/drawable/edittext_bac.xml" value="0.371875" />
         <entry key="app/src/main/res/drawable/employee_outline.xml" value="0.24791666666666667" />
         <entry key="app/src/main/res/drawable/layout_outline.xml" value="0.24791666666666667" />
+        <entry key="app/src/main/res/drawable/layout_outline2.xml" value="0.14123711340206185" />
         <entry key="app/src/main/res/layout/activity_admin_all_scans.xml" value="0.23715277777777777" />
         <entry key="app/src/main/res/layout/activity_admin_home.xml" value="0.23715277777777777" />
         <entry key="app/src/main/res/layout/activity_admin_scan_details.xml" value="0.23715277777777777" />
         <entry key="app/src/main/res/layout/activity_admin_scan_qrcode.xml" value="0.23715277777777777" />
-        <entry key="app/src/main/res/layout/activity_admin_settings.xml" value="0.23715277777777777" />
+        <entry key="app/src/main/res/layout/activity_admin_settings.xml" value="0.14" />
         <entry key="app/src/main/res/layout/activity_badge_details.xml" value="0.23715277777777777" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.3500905797101449" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
