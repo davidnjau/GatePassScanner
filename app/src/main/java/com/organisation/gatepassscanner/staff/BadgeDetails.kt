@@ -35,7 +35,7 @@ class BadgeDetails : AppCompatActivity() {
         super.onStart()
 
         getUserDetails()
-        formatter.generateCafeteriaQRCode(qrCodeIV, this)
+        formatter.generateQRCode(qrCodeIV, this)
     }
 
     private fun getUserDetails() {

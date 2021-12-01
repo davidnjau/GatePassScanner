@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
-        graphView.title = "My Graph View";
+        graphView.title = "My Performance";
         graphView.titleColor = R.color.purple_200;
 
 //        graphView.setTitleTextSize(18);

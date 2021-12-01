@@ -44,3 +44,12 @@ data class DbAdministration(
     val positionName: String?,
     val timezoneName: String?
 )
+data class DbStaffTime(
+    val userId: String,
+    val timeStatus: String,
+    val dateTime: String
+)
+data class Results(
+    val statusCode: Int,
+    val details: String
+)

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import com.organisation.gatepassscanner.R
 import com.organisation.gatepassscanner.admin.AdminHome
 import com.organisation.gatepassscanner.helperclass.Formatter
@@ -25,6 +26,8 @@ class SplashScreen : AppCompatActivity() {
             val roles = loginStatus.roles
 
             if (isLoggedIn){
+
+                Log.e("*-*-*- ", roles.toString())
 
                 //The user is logged in
                 if (roles != null){

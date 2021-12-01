@@ -32,7 +32,8 @@ import com.organisation.gatepassscanner.staff.Settings
 import com.organisation.gatepassscanner.staff.BadgeDetails
 import com.organisation.gatepassscanner.staff.MainActivity
 import com.squareup.picasso.Picasso
-import org.json.JSONObject
+import java.security.MessageDigest
+import java.security.NoSuchAlgorithmException
 import java.util.*
 
 
@@ -221,11 +222,11 @@ class Formatter {
 
         val sharedPreferences = context.getSharedPreferences(context.getString(R.string.app_name),0)
         val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn",false)
+        val roles = sharedPreferences.getString("roles",null)
 
         val staffDetails = getProfileDetails(context)
         return if (staffDetails != null) {
-            val department = staffDetails.department
-            LoginStatus(isLoggedIn, department)
+            LoginStatus(isLoggedIn, roles)
         }else{
             LoginStatus(isLoggedIn, null)
         }
@@ -242,6 +243,28 @@ class Formatter {
         val bottomNavigationView : BottomNavigationView = bottomNavigation.findViewById(R.id.bottom_navigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener1)
 
+    }
+
+    fun hashWithMD5(s: String): String {
+        try {
+            // Create MD5 Hash
+            val digest: MessageDigest = MessageDigest.getInstance("MD5")
+            digest.update(s.toByteArray())
+            val messageDigest: ByteArray = digest.digest()
+
+            // Create Hex String
+            val hexString = StringBuffer()
+            for (i in messageDigest.indices) hexString.append(
+                Integer.toHexString(
+                    0xFF and messageDigest[i]
+                        .toInt()
+                )
+            )
+            return hexString.toString()
+        } catch (e: NoSuchAlgorithmException) {
+            e.printStackTrace()
+        }
+        return ""
     }
 
     private var navigationItemSelectedListener1 =
@@ -272,13 +295,11 @@ class Formatter {
             false
         }
 
-    fun generateCafeteriaQRCode(qrCodeIV: ImageView, context: Context) {
+    fun generateQRCode(qrCodeIV: ImageView, context: Context) {
 
         val userDetails = getProfileDetails(context)
         val gson = Gson()
         val jsonObject = gson.toJson(userDetails)
-
-        Log.e("*-*-*-* ", jsonObject)
 
         val manager = context.getSystemService(AppCompatActivity.WINDOW_SERVICE) as WindowManager
         val display = manager.defaultDisplay
@@ -297,7 +318,18 @@ class Formatter {
         }
 
     }
+    fun getHeaders(context: Context): HashMap<String, String> {
 
+        val sharedPreferences = context.getSharedPreferences(context.getString(R.string.app_name),Context.MODE_PRIVATE)
+        val accessToken = sharedPreferences.getString("accessToken","")
+
+
+
+        var stringStringMap = HashMap<String, String>()
+        stringStringMap["Authorization"] = " Bearer $accessToken"
+
+        return stringStringMap
+    }
 
 
 
