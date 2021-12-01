@@ -3,11 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../.gradle/caches/transforms-3/c9419055a4609320c204b9c040cba2fc/transformed/core-1.7.0/res/layout/custom_dialog.xml" value="0.11639400136332652" />
         <entry key="app/src/main/res/drawable/bac_main.xml" value="0.371875" />
         <entry key="app/src/main/res/drawable/bac_main_badge.xml" value="0.24791666666666667" />
         <entry key="app/src/main/res/drawable/bac_main_graph.xml" value="0.371875" />
         <entry key="app/src/main/res/drawable/border_main.xml" value="0.371875" />
         <entry key="app/src/main/res/drawable/button_bac.xml" value="0.24791666666666667" />
+        <entry key="app/src/main/res/drawable/button_background2.xml" value="0.24536082474226803" />
         <entry key="app/src/main/res/drawable/button_background_ripple.xml" value="0.24791666666666667" />
         <entry key="app/src/main/res/drawable/circular_bac.xml" value="0.24791666666666667" />
         <entry key="app/src/main/res/drawable/edittext_bac.xml" value="0.371875" />
@@ -20,12 +22,13 @@
         <entry key="app/src/main/res/layout/activity_admin_scan_qrcode.xml" value="0.23715277777777777" />
         <entry key="app/src/main/res/layout/activity_admin_settings.xml" value="0.14" />
         <entry key="app/src/main/res/layout/activity_badge_details.xml" value="0.23715277777777777" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.3500905797101449" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_settings.xml" value="0.23715277777777777" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.3500905797101449" />
         <entry key="app/src/main/res/layout/custom_admin_bottom_navigation.xml" value="0.23715277777777777" />
         <entry key="app/src/main/res/layout/custom_bottom_navigation.xml" value="0.3432971014492754" />
+        <entry key="app/src/main/res/layout/custom_dialog.xml" value="0.23715277777777777" />
         <entry key="app/src/main/res/layout/custom_toolbar.xml" value="0.22" />
         <entry key="app/src/main/res/layout/custom_toolbar_main.xml" value="0.18" />
         <entry key="app/src/main/res/layout/employee_time_status.xml" value="0.23715277777777777" />

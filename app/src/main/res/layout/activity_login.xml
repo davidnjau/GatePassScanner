@@ -134,7 +134,8 @@
 
                             </LinearLayout>
 
-                            <LinearLayout
+                            <FrameLayout
+                                android:id="@+id/frameLayout"
                                 android:paddingEnd="20dp"
                                 android:paddingStart="20dp"
                                 android:gravity="center"
@@ -148,7 +149,7 @@
                                     android:layout_width="30dp"
                                     android:layout_height="30dp"/>
 
-                            </LinearLayout>
+                            </FrameLayout>
 
 
                         </LinearLayout>

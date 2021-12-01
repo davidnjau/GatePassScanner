@@ -22,14 +22,14 @@ class SplashScreen : AppCompatActivity() {
 
             val loginStatus = Formatter().checkLoginStatus(this)
             val isLoggedIn = loginStatus.isLoggedIn
-            val department = loginStatus.department
+            val roles = loginStatus.roles
 
             if (isLoggedIn){
 
                 //The user is logged in
-                if (department != null){
+                if (roles != null){
 
-                    if (department == "Admin" || department == "Security"){
+                    if (roles == "ROLE_ADMIN" || roles == "ROLE_SECURITY"){
 
                         val intent = Intent(this@SplashScreen, AdminHome::class.java)
                         startActivity(intent)

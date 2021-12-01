@@ -2,6 +2,7 @@
     <string name="app_name">GatePassScanner</string>
 
     <string name="qr_code">qr_code</string>
+    <string name="base_url">http://192.168.81.163:8089/</string>
 
     <string name="forgot_password">
         <u>

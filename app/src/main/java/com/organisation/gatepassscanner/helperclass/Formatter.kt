@@ -4,11 +4,21 @@ package com.organisation.gatepassscanner.helperclass
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
+import android.graphics.Point
+import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidmads.library.qrgenearator.QRGContents
+import androidmads.library.qrgenearator.QRGEncoder
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.gson.Gson
+import com.google.zxing.WriterException
 import com.organisation.gatepassscanner.R
 import com.organisation.gatepassscanner.admin.AdminAllScans
 import com.organisation.gatepassscanner.admin.AdminHome
@@ -16,11 +26,13 @@ import com.organisation.gatepassscanner.admin.AdminScanQRCode
 import com.organisation.gatepassscanner.admin.AdminSettings
 import com.organisation.gatepassscanner.dto.LoginStatus
 import com.organisation.gatepassscanner.dto.StaffDetails
+import com.organisation.gatepassscanner.shared_components.Login
 import com.organisation.gatepassscanner.shared_components.SplashScreen
 import com.organisation.gatepassscanner.staff.Settings
 import com.organisation.gatepassscanner.staff.BadgeDetails
 import com.organisation.gatepassscanner.staff.MainActivity
 import com.squareup.picasso.Picasso
+import org.json.JSONObject
 import java.util.*
 
 
@@ -118,6 +130,9 @@ class Formatter {
         val customToolbar = (context as Activity).findViewById<View>(R.id.customToolbar)
         val tvToolBarTitle = customToolbar.findViewById<TextView>(R.id.tvToolBarTitle)
         val imageViewProfile = customToolbar.findViewById<ImageView>(R.id.imageViewProfile)
+        imageViewProfile.setOnClickListener {
+            createDialog(context)
+        }
 
         val staffDetails = getProfileDetails(context)
         if (staffDetails != null){
@@ -137,16 +152,60 @@ class Formatter {
 
     }
 
-    private fun getProfileDetails(context: Context): StaffDetails? {
+    private fun createDialog(context: Context) {
 
-        val sharedPreferences = context.getSharedPreferences("profile",0)
-        val id = sharedPreferences.getString("id",null)
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("Log out?")
+        builder.setMessage("Are you sure you want to log out?")
+
+        builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+
+            val sharedPreferences = context.getSharedPreferences(context.getString(R.string.app_name),Context.MODE_PRIVATE)
+            val editor :SharedPreferences.Editor =  sharedPreferences.edit()
+
+            editor.putBoolean("isLoggedIn", false)
+            editor.apply()
+
+            val intent = Intent(context, Login::class.java)
+            context.startActivity(intent)
+            (context as Activity).finish()
+
+            CustomDialogToast().customDialogToast(  context, "You have been logged out.")
+
+
+        }
+
+        builder.setNegativeButton(android.R.string.no) { dialog, which ->
+
+            CustomDialogToast().customDialogToast(context as Activity, "Log out has been cancelled.")
+
+
+        }
+
+        builder.show()
+
+
+    }
+
+
+    public fun getProfileDetails(context: Context): StaffDetails? {
+
+        val sharedPreferences = context.getSharedPreferences(context.getString(R.string.app_name),Context.MODE_PRIVATE)
+        val id = sharedPreferences.getString("userId",null)
         val phoneNumber = sharedPreferences.getString("phoneNumber",null)
-        val fullName = sharedPreferences.getString("fullName",null)
+        val firstName = sharedPreferences.getString("firstName","")
+        val lastName = sharedPreferences.getString("lastName","")
         val emailAddress = sharedPreferences.getString("emailAddress",null)
         val imageUrl = sharedPreferences.getString("imageUrl",null)
-        val department = sharedPreferences.getString("department",null)
-        val position = sharedPreferences.getString("position",null)
+        val department = sharedPreferences.getString("departmentName",null)
+        val position = sharedPreferences.getString("positionName",null)
+
+
+        var fullName = if (firstName != "" && lastName != ""){
+            "$firstName $lastName"
+        }else{
+            null
+        }
 
         return if (id != null && phoneNumber != null && fullName != null
             && emailAddress != null && imageUrl != null && department != null && position != null
@@ -212,6 +271,32 @@ class Formatter {
             }
             false
         }
+
+    fun generateCafeteriaQRCode(qrCodeIV: ImageView, context: Context) {
+
+        val userDetails = getProfileDetails(context)
+        val gson = Gson()
+        val jsonObject = gson.toJson(userDetails)
+
+        Log.e("*-*-*-* ", jsonObject)
+
+        val manager = context.getSystemService(AppCompatActivity.WINDOW_SERVICE) as WindowManager
+        val display = manager.defaultDisplay
+        val point = Point()
+        display.getSize(point)
+        val width: Int = point.x
+        val height: Int = point.y
+        var dimen = if (width < height) width else height
+        dimen = dimen * 3 / 4
+        val qrgEncoder = QRGEncoder(jsonObject, null, QRGContents.Type.TEXT, dimen)
+        try {
+            val bitmap = qrgEncoder.encodeAsBitmap()
+            qrCodeIV.setImageBitmap(bitmap)
+        } catch (e: WriterException) {
+            Log.e("Tag", e.toString())
+        }
+
+    }
 
 
 
